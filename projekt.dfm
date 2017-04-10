@@ -17,22 +17,22 @@ object Form1: TForm1
   object Label1: TLabel
     Left = 270
     Top = 53
-    Width = 19
+    Width = 6
     Height = 13
     Caption = 'x'
   end
   object Label2: TLabel
     Left = 342
     Top = 53
-    Width = 19
+    Width = 4
     Height = 13
-    Caption = 'y'
+    Caption = 'f'
   end
   object Edit1: TEdit
     Left = 16
     Top = 16
     Width = 73
-    Height = 33
+    Height = 21
     Alignment = taCenter
     TabOrder = 0
     Text = 'n'
@@ -47,6 +47,17 @@ object Form1: TForm1
     ColCount = 3
     RowCount = 6
     TabOrder = 1
+    ColWidths = (
+      64
+      64
+      64)
+    RowHeights = (
+      24
+      24
+      24
+      24
+      24
+      24)
   end
   object Button1: TButton
     Left = 392
@@ -60,21 +71,42 @@ object Form1: TForm1
   object MaskEdit1: TMaskEdit
     Left = 248
     Top = 72
-    Width = 48
-    Height = 33
-    EditMask = '!99999;1; '
-    MaxLength = 5
+    Width = 44
+    Height = 21
     TabOrder = 3
-    Text = '     '
+    Text = ''
   end
   object MaskEdit2: TMaskEdit
     Left = 320
     Top = 72
     Width = 47
-    Height = 33
-    EditMask = '!99999;1; '
-    MaxLength = 5
+    Height = 21
     TabOrder = 4
-    Text = '     '
+    Text = ''
+  end
+  object Button2: TButton
+    Left = 408
+    Top = 296
+    Width = 75
+    Height = 25
+    Caption = 'Oblicz'
+    TabOrder = 5
+    OnClick = Button2Click
+  end
+  object Edit2: TEdit
+    Left = 281
+    Top = 298
+    Width = 121
+    Height = 21
+    TabOrder = 6
+    Text = 'Edit2'
+  end
+  object Edit3: TEdit
+    Left = 246
+    Top = 120
+    Width = 121
+    Height = 21
+    TabOrder = 7
+    Text = 'xx'
   end
 end
