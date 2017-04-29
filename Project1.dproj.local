@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899-12-30 00:00:00.000.789,C:\Users\Dell\Downloads\PROC-NUM\PROC-NUM\INTERPOL\NSPLVAL.PAS=</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.445,=C:\Users\Dell\Downloads\PROC-NUM\PROC-NUM\INTERPOL\NSPLVAL.PAS</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.440,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\NSPLVAL.PAS=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.465,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\NSPLVAL.PAS=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.252,=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\NSPLVAL.PAS</Transaction>
     <Transaction>1899-12-30 00:00:00.000.683,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.833,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\projekt.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.966,=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.451,=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\NSPLVAL.PAS</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.796,=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\NSPLVAL.PAS</Transaction>
     <Transaction>1899-12-30 00:00:00.000.833,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\projekt.dfm</Transaction>
-    <Transaction>2017-04-04 17:32:12.451,=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\NSPLVAL.PAS</Transaction>
-    <Transaction>2017-04-04 17:35:21.465,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\NSPLVAL.PAS=</Transaction>
-    <Transaction>2017-04-04 17:37:12.252,=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\NSPLVAL.PAS</Transaction>
-    <Transaction>2017-04-04 17:38:24.658,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\NSPLVAL.PAS=</Transaction>
-    <Transaction>2017-04-04 17:38:57.796,=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\NSPLVAL.PAS</Transaction>
-    <Transaction>2017-04-04 17:39:14.440,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\NSPLVAL.PAS=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.966,=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.833,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\projekt.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.658,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\NSPLVAL.PAS=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.445,=C:\Users\Dell\Downloads\PROC-NUM\PROC-NUM\INTERPOL\NSPLVAL.PAS</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.789,C:\Users\Dell\Downloads\PROC-NUM\PROC-NUM\INTERPOL\NSPLVAL.PAS=</Transaction>
   </Transactions>
 </BorlandProject>
