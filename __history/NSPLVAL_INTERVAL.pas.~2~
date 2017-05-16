@@ -1,0 +1,10 @@
+unit NSPLVAL_INTERVAL;
+
+interface
+function naturalsplinevalue_interval(n      : Integer;
+                             x,f    : vector;
+                             xx     : Extended;
+                             var st : Integer) : Extended;
+implementation
+
+end.

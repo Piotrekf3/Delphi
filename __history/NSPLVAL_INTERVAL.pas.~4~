@@ -1,0 +1,20 @@
+unit NSPLVAL_INTERVAL;
+
+interface
+type vector  = array [0..20] of Extended;
+     vector1 = array [1..18] of Extended;
+     vector2 = array [2..19] of Extended;
+function naturalsplinevalue_interval(n      : Integer;
+                             x,f    : vector;
+                             xx     : Extended;
+                             var st : Integer) : Extended;
+implementation
+
+function naturalsplinevalue_interval(n      : Integer;
+                             x,f    : vector;
+                             xx     : Extended;
+                             var st : Integer) : Extended;
+begin
+
+end;
+end.

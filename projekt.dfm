@@ -94,4 +94,16 @@ object Form1: TForm1
       24
       24)
   end
+  object RadioGroup1: TRadioGroup
+    Left = 248
+    Top = 288
+    Width = 121
+    Height = 81
+    Caption = 'Arytmetyka'
+    ItemIndex = 0
+    Items.Strings = (
+      'Zwyk'#322'a'
+      'Przedzia'#322'owa')
+    TabOrder = 6
+  end
 end

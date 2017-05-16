@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Grids, Vcl.Mask;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Grids, Vcl.Mask, IntervalArithmetic32and64,
+  Vcl.ExtCtrls,NSPLVAL_INTERVAL;
 
 type
   TForm1 = class(TForm)
@@ -14,6 +15,7 @@ type
     Edit2: TEdit;
     Edit3: TEdit;
     StringGrid2: TStringGrid;
+    RadioGroup1: TRadioGroup;
     procedure Edit1Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button2Click(Sender: TObject);

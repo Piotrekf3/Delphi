@@ -2,7 +2,8 @@ program Project1;
 
 uses
   Vcl.Forms,
-  projekt in 'projekt.pas' {Form1};
+  projekt in 'projekt.pas' {Form1},
+  NSPLVAL_INTERVAL in 'NSPLVAL_INTERVAL.pas';
 
 {$R *.res}
 
