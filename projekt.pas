@@ -44,6 +44,8 @@ var i, j, n, st : Integer;
     xx, temp : Extended;
     x, f     : vector;
     a        : matrix;
+    x_i,f_i  : vectorInterval;
+    xx_i     : Interval
 
 {$I NSPLVAL.PAS}
 {$I NSPLCNS.PAS}
@@ -51,26 +53,35 @@ begin
   n:=strtoint(Edit1.Text);
   xx:=strtofloat(Edit3.Text);
 
-  for i := 1 to n+1 do
+
+    for i := 1 to n+1 do
+    begin
+        x[i-1]:=strtofloat(StringGrid1.Cells[1,i]);
+        f[i-1]:=strtofloat(StringGrid1.Cells[2,i]);
+
+    end;
+
+    if RadioGroup1.ItemIndex=0 then
+    begin
+    temp:=naturalsplinevalue(n,x,f,xx,st);
+    if st=0 then
+    Edit2.Text:=floattostr(temp)
+    else
+    Edit2.Text:='st='+inttostr(st);
+
+    naturalsplinecoeffns(n,x,f,a,st);
+    for i := 1 to n do
+        for j := 1 to 4 do
+        begin
+            StringGrid2.Cells[j,i]:=floattostr(a[j-1,i-1]);
+            //StringGrid2.Cells[j,i]:='0';
+        end;
+  end
+
+  else
   begin
-      x[i-1]:=strtofloat(StringGrid1.Cells[1,i]);
-      f[i-1]:=strtofloat(StringGrid1.Cells[2,i]);
 
   end;
-
-  temp:=naturalsplinevalue(n,x,f,xx,st);
-  if st=0 then
-  Edit2.Text:=floattostr(temp)
-  else
-  Edit2.Text:='st='+inttostr(st);
-  
-  naturalsplinecoeffns(n,x,f,a,st);
-  for i := 1 to n do
-      for j := 1 to 4 do
-      begin
-          StringGrid2.Cells[j,i]:=floattostr(a[j-1,i-1]);
-          //StringGrid2.Cells[j,i]:='0';
-      end;
 end;
 
 procedure TForm1.Edit1Change(Sender: TObject);

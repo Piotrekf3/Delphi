@@ -1,7 +1,7 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Form1'
+  Caption = 'Funkcje sklejane stopnia trzeciego'
   ClientHeight = 437
   ClientWidth = 744
   Color = clBtnFace

@@ -1,7 +1,0 @@
-unit NSPLVAL_INTERVAL;
-
-interface
-function naturalsplinevalue_interval()
-implementation
-
-end.

@@ -33,6 +33,11 @@ type interval = record
                   class operator Subtract (x, y : interval) : interval;
                   class operator Multiply (x, y : interval) : interval;
                   class operator Divide (x, y : interval) : interval;
+				          class operator LessThan(x , y : interval) : boolean;
+                  class operator GreaterThan(x , y : interval) : boolean;
+                  class operator Equal(x , y : interval) : boolean;
+                  class operator GreaterThanOrEqual(x , y : interval) : boolean;
+                  class operator LessThanOrEqual(x , y : interval) : boolean;
                 end;
 
 // Functions for basic arithmetic operations for proper intervals (one can use
@@ -375,6 +380,37 @@ implementation
   begin
     Result:=idiv(x, y)
   end {Divide};
+  
+  class operator interval.LessThan(x, y : interval) : boolean;
+  begin
+	  if x.b < y.a then result:=true
+    else result:=false;
+  end;
+
+  class operator interval.GreaterThan(x, y : interval) : boolean;
+  begin
+	  if x.b > y.a then result:=true
+    else result:=false;
+  end;
+
+  class operator interval.Equal(x, y : interval) : boolean;
+  begin
+	  if (x.a = y.a) and (x.b = y.b) then result:=true
+    else result:=false;
+  end;
+
+
+  class operator interval.GreaterThanOrEqual(x, y : interval) : boolean;
+  begin
+	  if (x=y) or (x>y) then result:=true
+    else result:=false;
+  end;
+
+  class operator interval.LessThanOrEqual(x, y : interval) : boolean;
+  begin
+	  if (x=y) or (x<y) then result:=true
+    else result:=false;
+  end;
 
   class operator dinterval.Implicit (x : Extended) : dinterval;
   var s : string;

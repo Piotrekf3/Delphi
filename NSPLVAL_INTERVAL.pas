@@ -5,27 +5,27 @@ interface
 uses
 IntervalArithmetic32and64;
 
-type vector  = array [0..20] of interval;
-     vector1 = array [1..18] of interval;
-     vector2 = array [2..19] of interval;
+type vectorInterval  = array [0..20] of interval;
+     vector1Interval = array [1..18] of interval;
+     vector2Interval = array [2..19] of interval;
 function naturalsplinevalue_interval(n      : Integer;
-                             x,f    : vector;
+                             x,f    : vectorInterval;
                              xx     : interval;
                              var st : Integer) : interval;
 
 implementation
 
 function naturalsplinevalue_interval(n      : Integer;
-                             x,f    : vector;
+                             x,f    : vectorInterval;
                              xx     : interval;
                              var st : Integer) : interval;
 var i,k   : Integer;
     u,y,z : interval;
     found : Boolean;
     a     : array [0..3] of interval;
-    d     : vector;
-    b     : vector1;
-    c     : vector2;
+    d     : vectorInterval;
+    b     : vector1Interval;
+    c     : vector2Interval;
 begin
   if n<1
     then st:=1
