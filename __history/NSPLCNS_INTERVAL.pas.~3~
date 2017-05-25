@@ -1,0 +1,14 @@
+unit NSPLCNS_INTERVAL;
+
+interface
+type vectorInterval  = array [0..20] of interval;
+     vector1Interval = array [1..18] of interval;
+     vector2Interval = array [2..19] of interval;
+procedure naturalsplinecoeffns (n      : Integer;
+                                x,f    : vector;
+                                var a  : matrix;
+                                var st : Integer);
+
+implementation
+
+end.

@@ -1,0 +1,11 @@
+unit NSPLCNS_INTERVAL;
+
+interface
+procedure naturalsplinecoeffns (n      : Integer;
+                                x,f    : vector;
+                                var a  : matrix;
+                                var st : Integer);
+
+implementation
+
+end.

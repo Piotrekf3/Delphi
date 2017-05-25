@@ -1,4 +1,4 @@
-function naturalsplinevalue (n      : Integer;
+;function naturalsplinevalue (n      : Integer;
                              x,f    : vector;
                              xx     : Extended;
                              var st : Integer) : Extended;
@@ -122,6 +122,6 @@ begin
            z:=xx-x[i];
            for i:=2 downto 0 do
              y:=y*z+a[i];
-           naturalsplinevalue:=y
-         end
+           naturalsplinevalue:=y;
+         end;
 end;

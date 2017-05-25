@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Grids, Vcl.Mask, IntervalArithmetic32and64,
-  Vcl.ExtCtrls,NSPLVAL_INTERVAL;
+  Vcl.ExtCtrls,System.StrUtils,NSPLVAL_INTERVAL,NSPLCNS_INTERVAL;
 
 type
   TForm1 = class(TForm)
@@ -25,6 +25,8 @@ type
     var row: Integer;
     { Public declarations }
   end;
+  function strtointerval(edit: String) : interval;
+  function intervaltostr(int: interval) : String;
 
 var
   Form1: TForm1;
@@ -44,44 +46,61 @@ var i, j, n, st : Integer;
     xx, temp : Extended;
     x, f     : vector;
     a        : matrix;
+    a_i      : matrixInterval;
     x_i,f_i  : vectorInterval;
-    xx_i     : Interval
+    xx_i,temp_i     : Interval
 
 {$I NSPLVAL.PAS}
 {$I NSPLCNS.PAS}
 begin
   n:=strtoint(Edit1.Text);
-  xx:=strtofloat(Edit3.Text);
 
 
-    for i := 1 to n+1 do
-    begin
-        x[i-1]:=strtofloat(StringGrid1.Cells[1,i]);
-        f[i-1]:=strtofloat(StringGrid1.Cells[2,i]);
-
-    end;
-
+    //zwyk³a arytmetyka-------------------------------------
     if RadioGroup1.ItemIndex=0 then
     begin
-    temp:=naturalsplinevalue(n,x,f,xx,st);
-    if st=0 then
-    Edit2.Text:=floattostr(temp)
+      xx:=strtofloat(Edit3.Text);
+      for i := 1 to n+1 do
+      begin
+        x[i-1]:=strtofloat(StringGrid1.Cells[1,i]);
+        f[i-1]:=strtofloat(StringGrid1.Cells[2,i]);
+      end;
+      temp:=naturalsplinevalue(n,x,f,xx,st);
+      if st=0 then
+      Edit2.Text:=floattostr(temp)
+      else
+      Edit2.Text:='st='+inttostr(st);     //obs³uga st
+
+      naturalsplinecoeffns(n,x,f,a,st);
+      for i := 1 to n do
+          for j := 1 to 4 do
+          begin
+              StringGrid2.Cells[j,i]:=floattostr(a[j-1,i-1]);
+              //StringGrid2.Cells[j,i]:='0';
+          end;
+    end
+
+    //arytmetyka przedzia³owa-------------------------------------
     else
-    Edit2.Text:='st='+inttostr(st);
-
-    naturalsplinecoeffns(n,x,f,a,st);
-    for i := 1 to n do
-        for j := 1 to 4 do
-        begin
-            StringGrid2.Cells[j,i]:=floattostr(a[j-1,i-1]);
-            //StringGrid2.Cells[j,i]:='0';
-        end;
-  end
-
-  else
-  begin
-
-  end;
+    begin
+      xx_i:=strtointerval(edit3.Text);
+      for i := 1 to n+1 do
+      begin
+        x_i[i-1]:=strtointerval(StringGrid1.Cells[1,i]);
+        f_i[i-1]:=strtointerval(StringGrid1.Cells[2,i]);
+      end;
+      temp_i:=naturalsplinevalue_interval(n,x_i,f_i,xx_i,st);
+      if st=0 then
+      Edit2.Text:=intervaltostr(temp_i)
+      else
+      Edit2.Text:='st='+inttostr(st);     //obs³uga st
+      naturalsplinecoeffns_interval(n,x_i,f_i,a_i,st);
+      for i := 1 to n do
+          for j := 1 to 4 do
+          begin
+              StringGrid2.Cells[j,i]:=intervaltostr(a_i[j-1,i-1]);
+          end;
+    end;
 end;
 
 procedure TForm1.Edit1Change(Sender: TObject);
@@ -119,5 +138,27 @@ begin
      StringGrid2.Cells[2,0]:='x1';
      StringGrid2.Cells[3,0]:='x2';
      StringGrid2.Cells[4,0]:='x3';
+end;
+
+function strtointerval(edit: String) : interval;
+var
+  position: integer;
+begin
+   position:=pos(';',edit);
+   if position>0 then
+   begin
+    result.a:=strtofloat(LeftStr(edit,position-1));
+    result.b:=strtofloat(RightStr(edit,length(edit)-position));
+   end
+   else
+   begin
+     result.a:=left_read(edit);
+     result.b:=right_read(edit);
+   end;
+end;
+
+function intervaltostr(int: interval) : String;
+begin
+  result:=floattostr(int.a)+';'+floattostr(int.b);
 end;
 end.
