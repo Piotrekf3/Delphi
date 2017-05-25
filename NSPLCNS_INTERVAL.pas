@@ -7,14 +7,14 @@ IntervalArithmetic32and64,NSPLVAL_INTERVAL;
 
 type matrixInterval  = array [0..3, 0..19] of interval;
 
-procedure naturalsplinecoeffns (n      : Integer;
+procedure naturalsplinecoeffns_interval (n : Integer;
                                 x,f    : vectorInterval;
                                 var a  : matrixInterval;
                                 var st : Integer);
 
 implementation
 
-procedure naturalsplinecoeffns (n      : Integer;
+procedure naturalsplinecoeffns_interval (n : Integer;
                                 x,f    : vectorInterval;
                                 var a  : matrixInterval;
                                 var st : Integer);

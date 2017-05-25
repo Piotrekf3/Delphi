@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Grids, Vcl.Mask, IntervalArithmetic32and64,
-  Vcl.ExtCtrls,System.StrUtils,NSPLVAL_INTERVAL,NSPLCNS_INTERVAL;
+  Vcl.ExtCtrls,System.StrUtils,NSPLVAL_INTERVAL,NSPLCNS_INTERVAL,System.UITypes;
 
 type
   TForm1 = class(TForm)
@@ -66,18 +66,24 @@ begin
         f[i-1]:=strtofloat(StringGrid1.Cells[2,i]);
       end;
       temp:=naturalsplinevalue(n,x,f,xx,st);
-      if st=0 then
-      Edit2.Text:=floattostr(temp)
+      if st=1 then
+        MessageDlg('B³¹d: n<1',mtError,[mbOK],0)
+      else if st=2 then
+        MessageDlg('B³¹d: istniej¹ równe wartoœci x[i] i x[j] dla i!=j',mtError,[mbOK],0)
+      else if st=3 then
+        MessageDlg('B³ad: xx<x[0] lub xx>x[n]',mtError,[mbOK],0)
       else
-      Edit2.Text:='st='+inttostr(st);     //obs³uga st
+        Edit2.Text:=floattostr(temp);     //obs³uga st
 
       naturalsplinecoeffns(n,x,f,a,st);
-      for i := 1 to n do
-          for j := 1 to 4 do
-          begin
-              StringGrid2.Cells[j,i]:=floattostr(a[j-1,i-1]);
-              //StringGrid2.Cells[j,i]:='0';
-          end;
+      if st=0 then
+      begin
+        for i := 1 to n do
+            for j := 1 to 4 do
+            begin
+                StringGrid2.Cells[j,i]:=floattostr(a[j-1,i-1]);
+            end;
+      end;
     end
 
     //arytmetyka przedzia³owa-------------------------------------
@@ -90,16 +96,24 @@ begin
         f_i[i-1]:=strtointerval(StringGrid1.Cells[2,i]);
       end;
       temp_i:=naturalsplinevalue_interval(n,x_i,f_i,xx_i,st);
-      if st=0 then
-      Edit2.Text:=intervaltostr(temp_i)
+      if st=1 then
+        MessageDlg('B³¹d: n<1',mtError,[mbOK],0)
+      else if st=2 then
+        MessageDlg('B³¹d: istniej¹ równe wartoœci x[i] i x[j] dla i!=j',mtError,[mbOK],0)
+      else if st=3 then
+        MessageDlg('B³ad: xx<x[0] lub xx>x[n]',mtError,[mbOK],0)
       else
-      Edit2.Text:='st='+inttostr(st);     //obs³uga st
+        Edit2.Text:=intervaltostr(temp_i); //obs³uga st
+
       naturalsplinecoeffns_interval(n,x_i,f_i,a_i,st);
-      for i := 1 to n do
-          for j := 1 to 4 do
-          begin
-              StringGrid2.Cells[j,i]:=intervaltostr(a_i[j-1,i-1]);
-          end;
+      if st=0 then
+      begin
+        for i := 1 to n do
+            for j := 1 to 4 do
+            begin
+                StringGrid2.Cells[j,i]:=intervaltostr(a_i[j-1,i-1]);
+            end;
+      end;
     end;
 end;
 
